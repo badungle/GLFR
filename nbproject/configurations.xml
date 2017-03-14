@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <in>benchm.cpp</in>
+      <in>cast.cpp</in>
+      <in>cc.cpp</in>
+      <in>combinatorics.cpp</in>
+      <in>histograms.cpp</in>
+      <in>print.cpp</in>
+      <in>random.cpp</in>
+      <in>set_parameters.cpp</in>
+      <in>standard_include.cpp</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>benchmark.exe</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem></pElem>
+            </incDir>
+          </ccTool>
+        </makeTool>
+      </makefileType>
+      <item path="benchm.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="cast.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="cc.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="combinatorics.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="histograms.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="print.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="random.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="set_parameters.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="standard_include.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
