@@ -2161,9 +2161,6 @@ void generate_test_networks(){
 }
 
 int main(int argc, char * argv[]) {
-	
-    //generate_test_networks();
-    //return 0;
     
     srand_file();
     Parameters p;
