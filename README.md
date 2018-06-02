@@ -24,4 +24,4 @@ Network parameters of the GLFR benchmark:
 
 -ns: number of outliers
 
-The original implemenation of the LFR benchmark (with the homogeneity of community mixing fracxtions and without outliers) created by Lancichinetti can be download at https://sites.google.com/site/santofortunato/inthepress2		
+The original implemenation of the LFR benchmark (with the homogeneity of community mixing fractions and without outliers) created by Lancichinetti can be download at https://sites.google.com/site/santofortunato/inthepress2		
