@@ -13,6 +13,7 @@ class Parameters {
 		double tau2;
 		double mixing_parameter;
                 double mixing_heterogeneity;
+                int num_outliers;
 		int overlapping_nodes;
 		int overlap_membership;
 		int nmin;
@@ -43,6 +44,7 @@ Parameters::Parameters() {
                 
 		mixing_heterogeneity = 0;
                 
+                num_outliers = 0;
 		overlapping_nodes=0;
 		overlap_membership=0;
 		
@@ -67,7 +69,8 @@ Parameters::Parameters() {
 		command_flags.push_back("-on");		//8
 		command_flags.push_back("-om");		//9
 		command_flags.push_back("-C");		//10
-                command_flags.push_back("-delta");	//11
+		command_flags.push_back("-delta");	//11
+		command_flags.push_back("-ns");	//12
 		
 }
 
@@ -76,6 +79,7 @@ void Parameters::set_random() {
 	cout<<"this is a random network"<<endl;
 	mixing_parameter=0;
         mixing_heterogeneity = 0;
+        num_outliers = 0;
 	overlapping_nodes=0;
 	overlap_membership=0;
 	nmax=num_nodes;
@@ -119,7 +123,7 @@ bool Parameters::arrange() {
 	
 	}
 	
-	if(overlapping_nodes<0 || overlap_membership<0) {
+	if(num_outliers<0 || overlapping_nodes<0 || overlap_membership<0) {
 	
 		cerr<<"\n***********************\nERROR:\tsome positive parameters are negative"<<endl;
 		
@@ -166,13 +170,14 @@ bool Parameters::arrange() {
 	
 	
 	cout<<"\n**************************************************************"<<endl;
-	cout<<"number of nodes:\t"<<num_nodes<<endl;
+	cout<<"number of community nodes:\t"<<num_nodes<<endl;
 	cout<<"average degree:\t"<<average_k<<endl;
 	cout<<"maximum degree:\t"<<max_degree<<endl;
 	cout<<"exponent for the degree distribution:\t"<<tau<<endl;
 	cout<<"exponent for the community size distribution:\t"<<tau2<<endl;
 	cout<<"mixing parameter:\t"<<mixing_parameter<<endl;
         cout<<"mixing heterogeneity parameter:\t"<<mixing_heterogeneity<<endl;
+        cout<<"number of outliers:\t"<<num_outliers<<endl;
 	cout<<"number of overlapping nodes:\t"<<overlapping_nodes<<endl;
 	cout<<"number of memberships of the overlapping nodes:\t"<<overlap_membership<<endl;
 	if(clustering_coeff!=unlikely)
@@ -266,7 +271,7 @@ bool Parameters::set(string & flag, string & num) {
 					
 		if (fabs(err-int (err))>1e-8) {
 						
-			cerr<<"\n***********************\nERROR: the minumum community size must be an integer"<<endl;
+			cerr<<"\n***********************\nERROR: the minimum community size must be an integer"<<endl;
 			return false;
 					
 		}
@@ -320,6 +325,18 @@ bool Parameters::set(string & flag, string & num) {
 		mixing_heterogeneity=err;		
 
 	}
+        else if(flag==command_flags[12]) {
+					
+		if (fabs(err-int (err))>1e-8) {
+						
+			cerr<<"\n***********************\nERROR: the number of outliers must be an integer"<<endl;
+			return false;
+					
+		}
+					
+		num_outliers=cast_int(err);
+
+	}
 	else {
 				
 		cerr<<"\n***********************\nERROR while reading parameters: "<<flag<<" is an unknown option"<<endl;
@@ -347,6 +364,7 @@ void statement() {
 	cout<<"-t2\t\t[minus exponent for the community size distribution]"<<endl;
 	cout<<"-minc\t\t[minimum for the community sizes]"<<endl;
 	cout<<"-maxc\t\t[maximum for the community sizes]"<<endl;
+        cout<<"-ns\t\t[number of outliers]"<<endl;
 	cout<<"-on\t\t[number of overlapping nodes]"<<endl;
 	cout<<"-om\t\t[number of memberships of the overlapping nodes]"<<endl;
 	cout<<"-C\t\t[Average clustering coefficient]"<<endl;
@@ -376,6 +394,8 @@ void statement() {
 	cout<<"./benchmark -f flags.dat -t1 3"<<endl;
         cout<<"Example3:"<<endl;
 	cout<<"./benchmark -N 1000 -k 15 -maxk 50 -mu 0.3 -delta 0.2 -minc 20 -maxc 50 -C 0.7"<<endl;
+        cout<<"Example4:"<<endl;
+	cout<<"./benchmark -N 1000 -k 15 -maxk 50 -mu 0.3 -ns 100 -minc 20 -maxc 50 -C 0.7"<<endl;
 	
 	cout<<"\n-------------------- Other info ---------------------------\n"<<endl;
 	cout<<"Read file ReadMe.txt for more info."<<endl<<endl;
