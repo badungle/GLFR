@@ -1,6 +1,6 @@
 # GLFR benchmark
 
-GLFR benchmark is a program to generate synthetic networks with community structure for testing community detection algorithms. GLFR benhcmark is a generalization of the LFR benchmark that accounts for the heterogeneity in community mixing fractions. The original implemenation of the LFR benchmark created by Lancichinetti can be download at https://sites.google.com/site/santofortunato/inthepress2		
+GLFR benchmark is a program to generate synthetic networks with community structure for testing community detection algorithms. GLFR benhcmark is a generalization of the LFR benchmark that accounts for the heterogeneity in community mixing fractions and outliers. The original implemenation of the LFR benchmark created by Lancichinetti can be download at https://sites.google.com/site/santofortunato/inthepress2		
  
 Network parameters:
 
