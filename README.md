@@ -21,3 +21,5 @@ Network parameters:
 -mu: average of the fractions of external links of communities
 
 -delta: maximum distance from the fractions of external links of communities to mu
+
+-ns: number of outliers
